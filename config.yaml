@@ -1,0 +1,25 @@
+analysis:
+  hop_length: 512
+  microtonal_threshold: 0.35
+  magnitude_threshold_percentile: 80
+  min_melisma_length: 6
+  melisma_pitch_threshold: 1.5
+  onset_distance: 0.12
+  call_response_regularity_threshold: 0.25
+  complex_rhythm_threshold: 0.35
+
+visualization:
+  dpi: 300
+  main_figsize: [16, 12]
+  spec_figsize: [14, 8]
+  cmap_spectrogram: "viridis"
+  cmap_chroma: "plasma"
+  cmap_microtonal: "RdBu_r"
+
+scales:
+  Major: [0, 2, 4, 5, 7, 9, 11]
+  Minor: [0, 2, 3, 5, 7, 8, 10]
+  Pentatonic Major: [0, 2, 4, 7, 9]
+  Pentatonic Minor: [0, 3, 5, 7, 10]
+  Raag Bhairavi: [0, 1, 3, 5, 7, 8, 10] # Adding a traditional Indian scale
+  Hijaz: [0, 1, 4, 5, 7, 8, 10] # Adding a Middle Eastern scale
