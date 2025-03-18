@@ -171,7 +171,14 @@ if uploaded_file is not None:
         progress_bar.progress(20)
         
         status_text.text("Detecting microtonality...")
-        microtonal_pitches, microtonal_times, deviations = analyzer.detect_microtonality(y, sr)
+        result = analyzer.detect_microtonality(y, sr)
+
+        microtonal_pitches = result["microtonal_pitches"]
+        microtonal_times = result["times"]
+        deviations = result["deviations"]
+        glissando_count = result["glissando_count"]
+        vibrato_count = result["vibrato_count"]
+        intentional_score = result["intentional_microtonality_score"]
         progress_bar.progress(40)
         
         status_text.text("Detecting scale...")
@@ -195,6 +202,9 @@ if uploaded_file is not None:
             'microtonal_times': microtonal_times, 
             'deviations': deviations,
             'microtonality_score': len(microtonal_pitches) / max(1, len(y) / sr * 10),
+            'intentional microtonality score': glissando_count,
+            'glissando': glissando_count,
+            'vibrato' : vibrato_count,
             'scale': scale_name,
             'tonic': tonic,
             'tonic_note': ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'][tonic],
